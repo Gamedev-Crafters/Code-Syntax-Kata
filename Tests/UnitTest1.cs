@@ -78,7 +78,7 @@ public class Tests
     [Test]
     public void sdgsdg()
     {
-        bool result = Check("<>>");
+        bool result = Check("<>><<>");
         
         result.Should().BeFalse();
     }
