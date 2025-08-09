@@ -51,9 +51,20 @@ public class Tests
         result.Should().BeFalse();
     }
     
+    [Test]
+    public void StartWithGreaterThanIsIncorrect()
+    {
+        bool result = Check("><>");
+        
+        result.Should().BeFalse();
+    }
+    
     public bool Check(string input)
     {
         if (input[^1] == '<')
+            return false;
+        
+        if (input[0] == '>')
             return false;
         
         return input.Contains("<>");
