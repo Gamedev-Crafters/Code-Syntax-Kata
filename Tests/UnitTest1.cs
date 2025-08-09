@@ -4,7 +4,7 @@ namespace Tests;
 public class Tests
 {
     [Test]
-    public void Test1()
+    public void LessThanIsIncorrect()
     {
         bool result = Check("<");
         
@@ -12,7 +12,7 @@ public class Tests
     }
     
     [Test]
-    public void Test2()
+    public void LessThanGreaterThanIsCorrect()
     {
         bool result = Check("<>");
         
@@ -20,7 +20,7 @@ public class Tests
     }
     
     [Test]
-    public void Test3()
+    public void OneLessThanGreaterThanNestedIsCorrect()
     {
         bool result = Check("<<>>");
         
