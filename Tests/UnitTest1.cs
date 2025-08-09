@@ -67,8 +67,34 @@ public class Tests
         result.Should().BeFalse();
     }
     
+    [Test]
+    public void LessThanAndGreaterThanArePaired()
+    {
+        bool result = Check("<>>>");
+        
+        result.Should().BeFalse();
+    }
+    
     public bool Check(string input)
     {
+        int lessThanCount = 0;
+        int greaterThanCount = 0;
+
+        foreach (char c in input)
+        {
+            if(c == '<')
+            {
+                lessThanCount++;
+            }
+            else if(c == '>')
+            {
+                greaterThanCount++;
+            }
+        }
+        
+        if(lessThanCount != greaterThanCount)
+            return false;
+        
         if (input[^1] == '<')
             return false;
         
