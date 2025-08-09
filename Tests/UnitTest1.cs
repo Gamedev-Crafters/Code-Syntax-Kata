@@ -75,7 +75,32 @@ public class Tests
         result.Should().BeFalse();
     }
     
+    [Test]
+    public void sdgsdg()
+    {
+        bool result = Check("<>>");
+        
+        result.Should().BeFalse();
+    }
+    
     public bool Check(string input)
+    {
+        if (!AreSymbolsPaired(input)) 
+            return false;
+
+        if (input[^1] == '<')
+            return false;
+        
+        if (input[0] == '>')
+            return false;
+        
+        if(input.Length % 2 != 0)
+            return false;
+        
+        return input.Contains("<>");
+    }
+
+    static bool AreSymbolsPaired(string input)
     {
         int lessThanCount = 0;
         int greaterThanCount = 0;
@@ -92,18 +117,6 @@ public class Tests
             }
         }
         
-        if(lessThanCount != greaterThanCount)
-            return false;
-        
-        if (input[^1] == '<')
-            return false;
-        
-        if (input[0] == '>')
-            return false;
-        
-        if(input.Length % 2 != 0)
-            return false;
-        
-        return input.Contains("<>");
+        return lessThanCount == greaterThanCount;
     }
 }
