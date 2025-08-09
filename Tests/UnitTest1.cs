@@ -94,22 +94,19 @@ public class Tests
         if (IsStartingWithGreaterThan(input))
             return false;
 
-        return RecursiveCheck(input);
+        return IterativeCheck(input);
     }
 
-    static bool RecursiveCheck(string input)
+    static bool IterativeCheck(string input)
     {
-        if(!input.Contains("<>"))
-            return false;
-        
-        input = input.Replace("<>", string.Empty);
-        
-        if (input.Length == 0)
-            return true;
-        
-        return RecursiveCheck(input);
-    }
+        while (input.Contains("<>"))
+        {
+            input = input.Replace("<>", string.Empty);
+        }
 
+        return input.Length == 0;
+    }
+    
     static bool IsStartingWithGreaterThan(string input)
     {
         return input[0] == '>';
