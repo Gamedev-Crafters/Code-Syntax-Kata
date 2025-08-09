@@ -88,16 +88,26 @@ public class Tests
         if (!AreSymbolsPaired(input)) 
             return false;
 
-        if (input[^1] == '<')
+        if (IsEndingWithLessThan(input))
             return false;
         
-        if (input[0] == '>')
+        if (IsStartingWithGreaterThan(input))
             return false;
         
         if(input.Length % 2 != 0)
             return false;
         
         return input.Contains("<>");
+    }
+
+    static bool IsStartingWithGreaterThan(string input)
+    {
+        return input[0] == '>';
+    }
+
+    static bool IsEndingWithLessThan(string input)
+    {
+        return input[^1] == '<';
     }
 
     static bool AreSymbolsPaired(string input)
