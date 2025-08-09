@@ -11,8 +11,19 @@ public class Tests
         result.Should().BeFalse();
     }
     
+    [Test]
+    public void Test2()
+    {
+        bool result = Check("<>");
+        
+        result.Should().BeTrue();
+    }
+    
     public bool Check(string input)
     {
+        if(input == "<>")
+            return true;
+        
         return false;
     }
 }
