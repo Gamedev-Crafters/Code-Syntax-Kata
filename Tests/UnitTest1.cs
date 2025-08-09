@@ -59,12 +59,23 @@ public class Tests
         result.Should().BeFalse();
     }
     
+    [Test]
+    public void InputLenghtIsEven()
+    {
+        bool result = Check("<>>");
+        
+        result.Should().BeFalse();
+    }
+    
     public bool Check(string input)
     {
         if (input[^1] == '<')
             return false;
         
         if (input[0] == '>')
+            return false;
+        
+        if(input.Length % 2 != 0)
             return false;
         
         return input.Contains("<>");
