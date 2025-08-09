@@ -94,9 +94,6 @@ public class Tests
         if (IsStartingWithGreaterThan(input))
             return false;
         
-        if(input.Length % 2 != 0)
-            return false;
-        
         return input.Contains("<>");
     }
 
