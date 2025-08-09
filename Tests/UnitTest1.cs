@@ -82,11 +82,33 @@ public class Tests
         
         result.Should().BeFalse();
     }
+
+    [Test]
+    public void ContainIncorrectSymbols()
+    {
+        bool result = Check("P<>P");
+        
+        result.Should().BeFalse();
+    }
+
+    [TestCase("[<>]", true)]
+    [TestCase("[<><>[]]", true)]
+    [TestCase("<>[]<>[]", true)]
+    [TestCase("<[<>]>", true)]
+    [TestCase("<[><]>", false)]
+    [TestCase("[<][>]", false)]
+    public void CheckSquareBrackets(string input, bool expected)
+    {
+        bool result = Check(input);
+        
+        result.Should().Be(expected);
+    }
     
     public bool Check(string input)
     {
-        while (input.Contains("<>"))
+        while (input.Contains("<>") || input.Contains("[]"))
         {
+            input = input.Replace("[]", string.Empty);
             input = input.Replace("<>", string.Empty);
         }
 
