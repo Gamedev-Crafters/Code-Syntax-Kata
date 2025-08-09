@@ -85,11 +85,6 @@ public class Tests
     
     public bool Check(string input)
     {
-        return IterativeCheck(input);
-    }
-
-    static bool IterativeCheck(string input)
-    {
         while (input.Contains("<>"))
         {
             input = input.Replace("<>", string.Empty);
