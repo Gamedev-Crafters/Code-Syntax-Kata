@@ -45,18 +45,6 @@ public class Tests
     
     public bool Check(string input)
     {
-        if (input == "<>")
-            return true;
-        
-        if (input == "<<>>")
-            return true;
-        
-        if (input == "<<<>>>")
-            return true;
-        
-        if(input == "<<>><>")
-            return true;
-        
-        return false;
+        return input.Contains("<>");
     }
 }
