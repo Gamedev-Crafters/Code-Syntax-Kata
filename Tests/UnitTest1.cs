@@ -85,15 +85,6 @@ public class Tests
     
     public bool Check(string input)
     {
-        if (!AreSymbolsPaired(input)) 
-            return false;
-
-        if (IsEndingWithLessThan(input))
-            return false;
-        
-        if (IsStartingWithGreaterThan(input))
-            return false;
-
         return IterativeCheck(input);
     }
 
@@ -105,35 +96,5 @@ public class Tests
         }
 
         return input.Length == 0;
-    }
-    
-    static bool IsStartingWithGreaterThan(string input)
-    {
-        return input[0] == '>';
-    }
-
-    static bool IsEndingWithLessThan(string input)
-    {
-        return input[^1] == '<';
-    }
-
-    static bool AreSymbolsPaired(string input)
-    {
-        int lessThanCount = 0;
-        int greaterThanCount = 0;
-
-        foreach (char c in input)
-        {
-            if(c == '<')
-            {
-                lessThanCount++;
-            }
-            else if(c == '>')
-            {
-                greaterThanCount++;
-            }
-        }
-        
-        return lessThanCount == greaterThanCount;
     }
 }
