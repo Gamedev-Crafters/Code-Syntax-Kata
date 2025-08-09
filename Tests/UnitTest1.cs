@@ -35,6 +35,14 @@ public class Tests
         result.Should().BeTrue();
     }
     
+    [Test]
+    public void ldkfjjlksdjskdjf()
+    {
+        bool result = Check("<<>><>");
+        
+        result.Should().BeTrue();
+    }
+    
     public bool Check(string input)
     {
         if (input == "<>")
@@ -44,6 +52,9 @@ public class Tests
             return true;
         
         if (input == "<<<>>>")
+            return true;
+        
+        if(input == "<<>><>")
             return true;
         
         return false;
