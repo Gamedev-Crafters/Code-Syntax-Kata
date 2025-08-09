@@ -42,9 +42,20 @@ public class Tests
         
         result.Should().BeTrue();
     }
+
+    [Test]
+    public void EndWithLessThanIsIncorrect()
+    {
+        bool result = Check("<><");
+        
+        result.Should().BeFalse();
+    }
     
     public bool Check(string input)
     {
+        if (input[^1] == '<')
+            return false;
+        
         return input.Contains("<>");
     }
 }
